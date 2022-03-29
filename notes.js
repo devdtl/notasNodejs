@@ -30,10 +30,49 @@ const loadNotes= function() {
         return[] //devuelve lista vacía
     }
 }
-module.exports = { //exportamos los modulos que necesitamos a la app principal 'app.js'
-    addNote:addNote,
+const listNotes = function(){
+    const notes = loadNotes()
+
+    
+    notes.forEach((note)=>{
+        console.log("titulo de la nota: ",note.title, "cuerpo de la nota: ",note.body);
+    })
+}
+const removeNote = function(title){
+    const notes = loadNotes()
+    const notesToKeep = notes.filter((note)=>note.title != title)
+
+    if(notes.lenght > notesToKeep.lenght){
+        console.log("Note Remooved!!");
+        saveNotes(notesToKeep)
+
+    }else{
+        console.log("Nota Eliminada");
+    }
+}
+
+const readOneNote = function(title){
+    console.log(title)
+const notes = loadNotes()
+const note = notes.find((note)=>note.title === title)
+
+console.log(note);
+if(note){
+    
+    console.log("Nota encontrada");
+    console.log(note.title, note.body);
+}else{
+    console.log("Nota eliminada");
+}
+}
+
+    module.exports = { //exportamos los modulos que necesitamos a la app principal 'app.js'
+    readOneNote:readOneNote,
+        addNote:addNote,
     loadNotes:loadNotes,
-    saveNotes:saveNotes
+    saveNotes:saveNotes,
+    removeNote:removeNote,
+    listNotes:listNotes
 }
 
 

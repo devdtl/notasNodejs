@@ -1,8 +1,6 @@
 {
   "name": "app_notas",
   "version": "1.0.0",
-
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +10,15 @@
   "dependencies": {
     "chalk": "^5.0.1",
     "yargs": "^17.3.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdtl/notasNodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devdtl/notasNodejs/issues"
+  },
+  "homepage": "https://github.com/devdtl/notasNodejs#readme",
+  "description": ""
 }
