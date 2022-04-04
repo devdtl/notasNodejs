@@ -39,20 +39,45 @@ yargs.command({
 });
 
 yargs.command({
-    command:"readOneNote",
-    describe: "read one note!!",
-    builder:{
-        title:{
-            describe:"Note title",
-            demandOption: true,
-            type:'string'
-        }
+  command: "readOneNote",
+  describe: "read one note!!",
+  builder: {
+    title: {
+      describe: "Note title",
+      demandOption: true,
+      type: "string",
     },
-    handler(argv){
-        console.log(argv.title)
-        notes.readOneNote(argv.title)
-    }
-})
+  },
+  handler(argv) {
+    console.log(argv.title);
+    notes.readOneNote(argv.title);
+  },
+});
+
+yargs.command({
+  command: "update",
+  describe: "actualizar nota",
+  builder: {
+    title: {
+      describe: "titulo de la nota a eliminar",
+      demandOption: true,
+      type: "string",
+    },
+    updateTitle: {
+      describe: "titulo actualizado",
+      demandOption: true,
+      type: "String",
+    },
+    updateBody: {
+      describe: "cuerpo actualizado",
+      demandOption: true,
+      type: "String",
+    },
+  },
+  handler(argv) {
+    notes.updateNote(argv.title, argv.updateTitle, argv.updateBody);
+  },
+});
 
 yargs.parse(); //la funcion parse traduce a yargs lo recibido
 
